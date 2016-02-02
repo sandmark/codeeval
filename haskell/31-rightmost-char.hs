@@ -11,4 +11,6 @@ separate :: String -> (String, Char)
 separate s = let [str,c] = splitOn "," s in (str, head c)
 
 rightmost :: (Eq a) => ([a], a) -> Int
-rightmost (s,c) = last $ elemIndices c s
+rightmost (s,c) = case elemIndices c s of
+  [] -> -1
+  xs -> last xs
